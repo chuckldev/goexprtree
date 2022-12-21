@@ -1,3 +1,5 @@
+// Copyright (c) 2011 chuckldev.  All rights reserved.
+
 package exprtree
 
 import (
