@@ -34,16 +34,22 @@ func (e *ExprTree) InsertRight(value float64) {
 }
 
 func (e *ExprTree) Print() string {
+	// Copyright (c) 2011 The Go Authors. All rights reserved.
 	if e == nil {
-		return "()"
+		return "||"
 	}
+
 	s := ""
+
 	if e.Left != nil {
 		s += e.Left.Print() + " "
 	}
+
 	s += fmt.Sprint(e.Value)
+
 	if e.Right != nil {
 		s += " " + e.Right.Print()
 	}
-	return "(" + s + ")"
+
+	return "|" + s + "|"
 }
