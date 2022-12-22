@@ -5,17 +5,17 @@ package exprtree
 import "fmt"
 
 type ExprTree struct {
-	Value float64
+	Value string
 	Left  *ExprTree
 	Right *ExprTree
 }
 
-func New(value float64) *ExprTree {
+func New(value string) *ExprTree {
 	tree := &ExprTree{Value: value}
 	return tree
 }
 
-func (e *ExprTree) InsertLeft(value float64) {
+func (e *ExprTree) InsertLeft(value string) {
 	if e == nil {
 		e.Left = &ExprTree{Value: value}
 	} else {
@@ -25,7 +25,7 @@ func (e *ExprTree) InsertLeft(value float64) {
 	}
 }
 
-func (e *ExprTree) InsertRight(value float64) {
+func (e *ExprTree) InsertRight(value string) {
 	if e == nil {
 		e.Right = &ExprTree{Value: value}
 	} else {
@@ -38,7 +38,7 @@ func (e *ExprTree) InsertRight(value float64) {
 func (e *ExprTree) Print() string {
 	// Copyright (c) 2011 The Go Authors. All rights reserved.
 	if e == nil {
-		return "||"
+		return "()"
 	}
 
 	s := ""
@@ -53,5 +53,5 @@ func (e *ExprTree) Print() string {
 		s += " " + e.Right.Print()
 	}
 
-	return "|" + s + "|"
+	return "(" + s + ")"
 }
